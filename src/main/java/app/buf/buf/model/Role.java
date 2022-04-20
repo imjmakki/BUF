@@ -2,6 +2,7 @@ package app.buf.buf.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,6 +11,9 @@ import java.util.Set;
 
 @Entity
 @Table(name = "roles")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Role implements Serializable {
 
     @Id
@@ -19,7 +23,7 @@ public class Role implements Serializable {
     private Long id;
 
     @Column(name = "role_name")
-    private String Name;
+    private String name;
 
     @JsonIgnore
     @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
