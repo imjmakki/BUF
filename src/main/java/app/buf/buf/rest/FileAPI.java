@@ -45,7 +45,7 @@ public class FileAPI {
     }
 
     @PostMapping("/uploads")
-    public List<Response> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files) {
+    public List <Response> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files) {
         return Arrays.asList(files)
                 .stream()
                 .map(file->uploadFile(file))
