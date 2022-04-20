@@ -6,7 +6,10 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "users",
@@ -41,11 +44,17 @@ public class User implements Serializable {
 
     @Column(name = "created_at")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date joinDate;
+    private LocalDateTime joinDate;
 
     @Column(name = "last_login_date")
-    private Date lastLoginDate;
+    private LocalDateTime lastLoginDate;
 
     @Column(name = "last_login_date_display")
-    private Date lastLoginDateDisplay;
+    private LocalDateTime lastLoginDateDisplay;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    private Set<Role> roles = new HashSet<>();
 }
