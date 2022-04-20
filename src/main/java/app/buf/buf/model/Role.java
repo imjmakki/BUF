@@ -21,8 +21,6 @@ public class Role implements Serializable {
     @Column(nullable = false, updatable = false)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Long id;
-
-    @Column(name = "role_name")
     private String roleName;
 
     @JsonIgnore

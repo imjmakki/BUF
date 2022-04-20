@@ -13,7 +13,5 @@ public class Authority implements Serializable {
     @Column(nullable = false, updatable = false)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Long id;
-
-    @Column(name = "auth_name")
     private String authName;
 }
