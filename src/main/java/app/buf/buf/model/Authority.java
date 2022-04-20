@@ -15,5 +15,5 @@ public class Authority implements Serializable {
     private Long id;
 
     @Column(name = "auth_name")
-    private String name;
+    private String authName;
 }

@@ -23,7 +23,7 @@ public class Role implements Serializable {
     private Long id;
 
     @Column(name = "role_name")
-    private String name;
+    private String roleName;
 
     @JsonIgnore
     @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
