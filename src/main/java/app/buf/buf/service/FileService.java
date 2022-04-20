@@ -2,6 +2,7 @@ package app.buf.buf.service;
 
 import app.buf.buf.dao.FileUpload;
 import app.buf.buf.model.File;
+import app.buf.buf.util.exception.File.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -36,7 +37,7 @@ public class FileService {
     }
 
     public File getFile(String fileId) {
-        return fileUploadDAO.findById(fileId)
+        return fileUpload.findById(fileId)
                 .orElseThrow(() -> new FileNotFoundException("File not found with id " + fileId));
     }
 }
