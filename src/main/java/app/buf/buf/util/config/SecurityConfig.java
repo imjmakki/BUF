@@ -59,6 +59,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected UserDetailsService userDetailsService() {
         UserDetails user = User.builder().username("user").password(passwordEncoder()
                 .encode("user")).roles("USER").build();
+        UserDetails editor = User.builder().username("editor").password(passwordEncoder()
+                .encode("editor")).roles("EDITOR").build();
+        UserDetails tester = User.builder().username("tester").password(passwordEncoder()
+                .encode("tester")).roles("TESTER").build();
+        UserDetails manager = User.builder().username("manager").password(passwordEncoder()
+                .encode("manager")).roles("MANAGER").build();
         UserDetails admin = User.builder().username("admin").password(passwordEncoder()
                 .encode("admin")).roles("ADMIN").build();
         return new InMemoryUserDetailsManager(user, admin);
