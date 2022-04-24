@@ -4,5 +4,9 @@ public enum Authority {
     CREATE,
     READ,
     UPDATE,
-    DELETE;
+    DELETE,
+    BLOCK,
+    UNBLOCK,
+    APPROVE,
+    DECLINE;
 }
