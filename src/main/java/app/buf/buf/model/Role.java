@@ -26,4 +26,10 @@ public class Role implements Serializable {
     @JsonIgnore
     @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
     private Set<User> users = new HashSet<>();
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "role_authorities",
+            joinColumns = @JoinColumn(name = "rold_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "auth_id", referencedColumnName = "id"))
+    private Set<Authority> authorities = new HashSet<>();
 }
